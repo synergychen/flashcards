@@ -1,7 +1,9 @@
+DROP TABLE decks;
+DROP TABLE cards;
+
 CREATE TABLE decks(
   id integer NOT NULL,
-  name character varying(255),
-  cards_number integer NOT NULL
+  name character varying(255)
 );
 
 CREATE TABLE cards(
@@ -11,10 +13,10 @@ CREATE TABLE cards(
   deck_id integer NOT NULL
 );
 
-INSERT INTO decks (id, name, cards_number)
+INSERT INTO decks (id, name)
   VALUES
-    (1, 'japanese', 2),
-    (2, 'germany', 3);
+    (1, 'japanese'),
+    (2, 'germany');
 
 INSERT INTO cards (id, front, back, deck_id)
   VALUES
@@ -24,3 +26,6 @@ INSERT INTO cards (id, front, back, deck_id)
     (4, 'Dog', 'Hund', 2),
     (5, 'Cat',  'Katze', 2),
     (6, 'Snake', 'Schlange', 2);
+
+ALTER TABLE ONLY decks
+    ADD CONSTRAINT decks_pkey PRIMARY KEY (id);
