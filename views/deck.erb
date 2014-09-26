@@ -1,5 +1,7 @@
 <h2>Viewing Deck "<%= @deck.name %>"</h2>
 
+<a href="/decks/<%= @deck.id %>/edit">Edit</a>
+
 <ul>
   <% @deck.cards.each do |card| %>
     <li>
