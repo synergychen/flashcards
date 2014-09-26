@@ -53,3 +53,16 @@ patch "/decks/:id" do
 
   redirect to "/"
 end
+
+get "/decks/:id/cards/new" do
+  @deck = Deck.find(params[:id])
+  erb :new_card
+end
+
+post "/decks/:id/cards" do
+  @deck = Deck.find(params[:id])
+  p @deck.inspect
+  p params.inspect
+  @deck.cards.create(params[:card])
+  redirect to "/decks/#{params[:id]}"
+end

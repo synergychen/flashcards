@@ -1,11 +1,13 @@
 <h2>Viewing Deck "<%= @deck.name %>"</h2>
 
-<a href="/decks/<%= @deck.id %>/edit">Edit</a>
+<a href="/decks/<%= @deck.id %>/edit">Edit Deck</a>
+<br />
+<a href="/decks/<%= @deck.id %>/cards/new">Create a New Card</a>
 
 <ul>
   <% @deck.cards.each do |card| %>
     <li>
-    <p><%= card.front %>:   <%= card.back %></p>
+      <p><%= card.front %>:   <%= card.back %></p>
     </li>
   <% end %>
 
