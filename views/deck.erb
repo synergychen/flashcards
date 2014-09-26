@@ -1,0 +1,9 @@
+<h2>Viewing Deck "<%= @deck.name %>"</h2>
+
+<ul>
+  <% @deck.cards.each do |card| %>
+    <li>
+    <p><%= card.front %>:   <%= card.back %></p>
+    </li>
+  <% end %>
+
