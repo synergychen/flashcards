@@ -1,0 +1,8 @@
+<form action="/decks/<%= @deck.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH" />
+  <label for="deck_name">Deck Name</label>
+  <input id="deck_name" type="text" name="deck[name]" value="<%= @deck.name %>" />
+  <div>
+    <input type="submit" value="Update Deck" />
+  </div>
+</form>

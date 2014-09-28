@@ -1,0 +1,9 @@
+<form action="/decks/<%= @deck.id %>/cards" method="POST">
+  <label for="card_front">Front</label>
+  <input id="card_front" type="text" name="card[front]" />
+  <label for="card_back">Back</label>
+  <input id="card_back" type="text" name="card[back]" />
+  <div>
+    <input type="submit" value="Create a New Card" />
+  </div>
+</form>
