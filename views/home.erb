@@ -1,9 +1,14 @@
 <a href="/decks/new">Create a Deck</a>
+<p>Decks List :</p>
 
 <ul>
   <% @decks.each do |deck| %>
     <li>
-      <a href="/decks/<%= deck.id %>"><%= deck.name %></a>
+      <%= deck.name.capitalize %>
+      &nbsp;
+      <a href="/decks/<%= deck.id %>">Edit</a>
+      &nbsp;
+      <a href="/play/decks/<%= deck.id %>">Play</a>
     </li>
   <% end %>
 </ul>

@@ -61,8 +61,28 @@ end
 
 post "/decks/:id/cards" do
   @deck = Deck.find(params[:id])
-  p @deck.inspect
-  p params.inspect
   @deck.cards.create(params[:card])
   redirect to "/decks/#{params[:id]}"
+end
+
+# play deck game
+user_guess = ""
+
+get "/play/decks/:id" do
+  @deck = Deck.find(params[:id])
+  user_guess = ""
+  erb :play_deck
+end
+
+get "/play/decks/:deck_id/cards/:card_id" do
+  @deck = Deck.find(params[:deck_id])
+  @card= Card.find(params[:card_id])
+  @user_guess = user_guess
+  erb :play_card
+end
+
+patch "/play/decks/:deck_id/cards/:card_id" do
+  @deck = Deck.find(params[:deck_id])
+  user_guess = params[:card][:back]
+  redirect to "/play/decks/#{params[:deck_id]}/cards/#{params[:card_id]}"
 end
