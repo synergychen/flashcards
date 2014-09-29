@@ -1,14 +1,11 @@
-<a href="/decks/new">Create a Deck</a>
-<p>Decks List :</p>
+<a href="/decks/new">Create a Deck</a><br /><br />
 
-<ul>
+<table>
   <% @decks.each do |deck| %>
-    <li>
-      <%= deck.name.capitalize %>
-      &nbsp;
-      <a href="/decks/<%= deck.id %>">Edit</a>
-      &nbsp;
-      <a href="/play/decks/<%= deck.id %>">Play</a>
-    </li>
+    <tr>
+      <td><%= deck.name.capitalize %></td>
+      <td><a href="/decks/<%= deck.id %>">Edit</a></td>
+      <td><a href="/play/decks/<%= deck.id %>">Play</a></td>
+    </tr>
   <% end %>
-</ul>
+</table>

@@ -1,13 +1,19 @@
-<h2>Viewing Deck "<%= @deck.name %>"</h2>
+<h2>Viewing Deck "<%= @deck.name.capitalize %>"</h2>
 
-<a href="/decks/<%= @deck.id %>/edit">Edit Deck</a>
-<br />
-<a href="/decks/<%= @deck.id %>/cards/new">Create a New Card</a>
+<a href="/decks/<%= @deck.id %>/edit">Edit Deck</a><br />
+<a href="/decks/<%= @deck.id %>/cards/new">Create a New Card</a><br />
+<a href="/play/decks/<%= @deck.id %>">Play The Deck!</a><br /><br />
 
-<ul>
+<table>
+  <tr>
+    <th>Front</th>
+    <th>Back</th>
+  </tr>
   <% @deck.cards.each do |card| %>
-    <li>
-      <p><%= card.front %>:   <%= card.back %></p>
-    </li>
+    <tr>
+      <td><%= card.front.capitalize %></td>
+      <td><%= card.back.capitalize %></td>
+    </tr>
   <% end %>
+</table>
 
