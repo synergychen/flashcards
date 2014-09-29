@@ -1,0 +1,16 @@
+<h3>Play FlashCards Game in "<%= @deck.name.capitalize %>"</h3>
+
+<table>
+  <tr>
+    <th>Front</th>
+    <th>Back</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @deck.cards.each do |card| %>
+    <tr>
+      <td><%= card.front.capitalize %></tb>
+      <td>?</td>
+      <td><a href="/play/decks/<%= @deck.id %>/cards/<%= card.id %>">Play</a></td>
+    </tr>
+  <% end %>
+</table>

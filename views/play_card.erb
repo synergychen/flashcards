@@ -1,0 +1,30 @@
+<h3>Play FlashCards Game in "<%= @deck.name.capitalize %>"</h3>
+
+<a href="/">Play Another Deck</a><br />
+<a href="/play/decks/<%= @deck.id %>">Play Another Card</a><br /><br />
+
+<table>
+  <tr>
+    <th>Front</th>
+    <th>Back</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr>
+    <form action="/play/decks/<%= @deck.id %>/cards/<%= @card.id %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH" />
+      <td><label for="front"><%= @card.front.capitalize %></label></tb>
+      <td><input id="card_back" type="text" name="card[back]" /></td>
+      <td><input type="submit" value="Play" /></td>
+    </form>
+  </tr>
+</table>
+
+<hr />
+
+<% if @user_guess == "" %>
+  <%= "Please make a guess." %>
+<% elsif @user_guess.capitalize == @card.back.capitalize %>
+  <%= "Your answer : #{@card.back.capitalize} is right!" %>
+<% else %>
+  <%= "Your answer is wrong!" %>
+<% end %>
